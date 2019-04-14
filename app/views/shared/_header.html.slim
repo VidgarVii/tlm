@@ -1,0 +1,15 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand href="#"  TLM
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+
+    form.form-inline.my-2.my-lg-0
+      - if user_signed_in?
+        p "Hello #{current_user.email}"
+        = link_to 'Honors', honors_path
+        = link_to t('exit'), destroy_user_session_path, method: :delete
+      - else
+        = link_to t('signin'), new_user_session_path
+        = link_to t('signup'), new_user_registration_path
