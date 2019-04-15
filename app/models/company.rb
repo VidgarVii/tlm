@@ -4,6 +4,7 @@ class Company < ApplicationRecord
   has_many :payment_accounts, through: :bank_accounts, source: :bank
 
   belongs_to :legal_form
+  belongs_to :admin, class_name: 'User', optional: true
 
   validates :inn, :kpp, :name, :ogrn, :phone, presence: true
   validates :kpp,  length: { is: 9 }

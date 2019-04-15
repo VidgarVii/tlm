@@ -12,6 +12,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.bigint :bik
 
       t.references :legal_form, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

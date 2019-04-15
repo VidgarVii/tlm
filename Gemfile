@@ -6,7 +6,7 @@ ruby '2.6.2'
 gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'cocoon'
@@ -15,6 +15,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mini_racer'
 gem 'devise'
+gem 'turbolinks', '~> 5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

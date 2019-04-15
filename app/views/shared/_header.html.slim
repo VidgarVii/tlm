@@ -5,10 +5,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
 
-    form.form-inline.my-2.my-lg-0
+    .my-2.my-lg-0.authenticated
       - if user_signed_in?
-        p "Hello #{current_user.email}"
-        = link_to 'Honors', honors_path
+        = current_user.email
         = link_to t('exit'), destroy_user_session_path, method: :delete
       - else
         = link_to t('signin'), new_user_session_path
