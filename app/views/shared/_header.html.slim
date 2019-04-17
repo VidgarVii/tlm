@@ -4,7 +4,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
-
+      li =link_to t('navbar'), new_company_path, class: 'item nav nav-item' if user_signed_in?
     .my-2.my-lg-0.authenticated
       - if user_signed_in?
         = current_user.email
