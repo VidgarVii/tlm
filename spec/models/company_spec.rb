@@ -12,6 +12,10 @@ RSpec.describe Company, type: :model do
     it { should validate_presence_of attr }
   end
 
+  %i[inn ogrn].each do |attr|
+    it { should validate_uniqueness_of attr }
+  end
+
   %i[inn kpp ogrn].each do |attr|
     it { should validate_length_of attr }
   end

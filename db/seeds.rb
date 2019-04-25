@@ -13,5 +13,3 @@ Address.create!([
                     {address: '428123, г. Простоквашиноб ул. Пирогова, 1', company: bank},
                     {address: '428123, г. Простоквашиноб ул. Пирогова, 6', company: trader}
                 ])
-
-BankAccount.create!(settlement_account: 11101111300000000111, bank: bank, client: trader)

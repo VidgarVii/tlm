@@ -1,0 +1,16 @@
+= render 'shared/errors', resource: company
+
+= form_with model: company, url: companies_path, class: 'company', local: true do |f|
+  .form-group
+    = f.collection_select :legal_form_id, LegalForm.all, :id, :less_title
+  .form-group
+    = f.label :name
+    = f.text_field :name
+  .form-group
+    = f.label :email
+    = f.email_field :email
+  .form-group
+    = f.label :phone
+    = f.text_field :phone
+
+  = f.submit
