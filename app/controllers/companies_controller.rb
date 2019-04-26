@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
   end
 
@@ -11,11 +13,10 @@ class CompaniesController < ApplicationController
   def create
     legal_form = LegalForm.find(params[:trader][:legal_form_id])
     @company = legal_form.companies.build(company_params)
-    if @company.save
-      redirect_to dashboard_path, notice: 'Компания зарегистрирована'
-    else
-      render :new
-    end
+
+    redirect_to dashboard_path, notice: 'Компания зарегистрирована' if @company.save
+
+    p @company.errors.full_messages
   end
 
   def edit

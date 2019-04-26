@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :legal_form do
-    form { "OOO" }
+    less_title { "OOO" }
+    title      { "Общество с ограниченной ответственностью" }
   end
 end

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe CompaniesController, type: :controller do
+  let!(:company) { create(:company, :with_address) }
+  let(:user)           { create(:user) }
+
+  before { login(user) }
 
   describe "GET #index" do
     it "returns http success" do
@@ -11,7 +15,7 @@ RSpec.describe CompaniesController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      get :show, params: { id:company }
       expect(response).to have_http_status(:success)
     end
   end
@@ -25,14 +29,15 @@ RSpec.describe CompaniesController, type: :controller do
 
   describe "GET #edit" do
     it "returns http success" do
-      get :edit
+      get :edit, params: { id:company }
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #destroy" do
     it "returns http success" do
-      delete :destroy
+      delete :destroy, params: { id: company }
+
       expect(response).to have_http_status(:success)
     end
   end

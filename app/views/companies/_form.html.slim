@@ -1,16 +1,26 @@
-= render 'shared/errors', resource: company
+.row
+  = form_with model: company, url: companies_path, class: 'col-md-5 company' do |f|
+    .form-group
+      = f.collection_select :legal_form_id, LegalForm.all, :id, :less_title, {}, class: 'form-control'
+    .form-group
+      = f.label :inn
+      = f.number_field :inn
+    .form-group
+      = f.label :name
+      = f.text_field :name
+    .form-group
+      = f.label :kpp
+      = f.number_field :kpp
+    .form-group
+      = f.label :ogrn
+      = f.number_field :ogrn
+    .form-group
+      = f.label :email
+      = f.email_field :email
+    .form-group
+      = f.label :phone
+      = f.text_field :phone
 
-= form_with model: company, url: companies_path, class: 'company', local: true do |f|
-  .form-group
-    = f.collection_select :legal_form_id, LegalForm.all, :id, :less_title
-  .form-group
-    = f.label :name
-    = f.text_field :name
-  .form-group
-    = f.label :email
-    = f.email_field :email
-  .form-group
-    = f.label :phone
-    = f.text_field :phone
+    = f.submit class: 'btn btn-success'
 
-  = f.submit
+  #form_errors.offset-md-1.col-md-5

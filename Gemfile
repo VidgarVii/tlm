@@ -10,6 +10,7 @@ gem 'sassc-rails'
 # gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'cocoon'
+gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'bootsnap', '>= 1.1.0', require: false

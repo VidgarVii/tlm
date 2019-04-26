@@ -1,0 +1,9 @@
+<%- if @company.errors.present? %>
+  <%- @company.errors.messages.keys.each do |key| %>
+    var block = document.getElementById('trader_<%= key.to_s %>');
+    block.classList.add('error');
+  <%- end %>
+
+  var formErrors = document.getElementById('form_errors');
+  formErrors.innerHTML = '<%= render 'shared/errors', resource: @company %>'
+<%- end %>

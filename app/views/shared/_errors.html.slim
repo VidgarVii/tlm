@@ -1,5 +1,6 @@
 - if resource&.errors.present?
-  b "#{resource.errors.count} error(s) detected"
-  ul
-    - resource.errors.full_messages.each do |msg|
-      li = msg
+  .wrapper
+    b "Найдено #{resource.errors.count} ошибок"
+    ul
+      - resource.errors.full_messages.each do |msg|
+        li = msg

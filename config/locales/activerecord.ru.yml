@@ -1,0 +1,43 @@
+ru:
+  activerecord:
+    attributes:
+      company:
+        inn: 'ИНН'
+        kpp: 'КПП'
+        ogrn: 'ОГРН'
+        phone: 'Телефон'
+        name: 'Название'
+    errors:
+      template:
+        header:
+          one:   "1 ошибка в %{model}"
+          other: "%{count} найдено ошибок в %{model}"
+        body:    "Имеются не коректные данные:"
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+      models:
+        trader:
+          attributes:
+            inn:
+              blank: 'не может быть пустым'
+              wrong_length: 'данные не корректны'
+            kpp:
+              blank: 'не может быть пустым'
+              wrong_length: 'Данные не корректны'
+            name:
+              blank: 'не может быть пустым'
+            ogrn:
+              blank: 'не может быть пустым'
+              wrong_length: 'данные не корректны'
+            phone:
+              blank: 'не может быть пустым'
+        address:
+          attributes:
+            trader:
+              inn: 'ИНН'
+            company:
+              inn: 'ИНН'
+              required: 'Ошибка'

@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-feature "companies/destroy.js.slim", type: :feature do
+RSpec.describe "companies/destroy.js.slim", type: :view do
 end
