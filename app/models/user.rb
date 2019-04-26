@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_and_belongs_to_many :companies
+  has_many :employers
+  has_many :companies, through: :employers
 end

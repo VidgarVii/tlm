@@ -14,9 +14,10 @@ class CompaniesController < ApplicationController
     legal_form = LegalForm.find(params[:trader][:legal_form_id])
     @company = legal_form.companies.build(company_params)
 
-    redirect_to dashboard_path, notice: 'Компания зарегистрирована' if @company.save
-
-    p @company.errors.full_messages
+    if @company.save
+      @company.employers.create(user_id: current_user.id, post: 1)
+      redirect_to dashboard_path, notice: 'Компания зарегистрирована'
+    end
   end
 
   def edit
@@ -34,6 +35,6 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:trader).permit(:name, :inn, :kpp, :phone, :email)
+    params.require(:trader).permit(:name, :inn, :kpp, :ogrn, :phone, :email)
   end
 end

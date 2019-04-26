@@ -2,7 +2,8 @@ class Company < ApplicationRecord
   has_one :legal_address, class_name: 'Address', dependent: :destroy
   has_many :bank_accounts, dependent: :delete_all
   has_many :payment_accounts, through: :bank_accounts, source: :bank
-  has_and_belongs_to_many :managers, class_name: 'User'
+  has_many :employers, dependent: :destroy
+  has_many :users, through: :employers
 
   belongs_to :legal_form
 

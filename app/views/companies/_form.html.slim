@@ -4,22 +4,22 @@
       = f.collection_select :legal_form_id, LegalForm.all, :id, :less_title, {}, class: 'form-control'
     .form-group
       = f.label :inn
-      = f.number_field :inn
+      = f.number_field :inn, maxlength: 9
     .form-group
       = f.label :name
       = f.text_field :name
     .form-group
       = f.label :kpp
-      = f.number_field :kpp
+      = f.number_field :kpp, maxlength: 10
     .form-group
       = f.label :ogrn
-      = f.number_field :ogrn
+      = f.number_field :ogrn, maxlength: 13
     .form-group
       = f.label :email
       = f.email_field :email
     .form-group
       = f.label :phone
-      = f.text_field :phone
+      = f.text_field :phone, maxlength: 20
 
     = f.submit class: 'btn btn-success'
 
