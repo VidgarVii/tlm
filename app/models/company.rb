@@ -7,8 +7,11 @@ class Company < ApplicationRecord
 
   belongs_to :legal_form
 
+  has_one_attached :logo
+
   validates :inn, :kpp, :name, :ogrn, :phone, presence: true
   validates :kpp,  length: { is: 9 }
   validates :inn,  length: { is: 10 }
   validates :ogrn, length: { is: 13 }
+  validates :logo, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 end

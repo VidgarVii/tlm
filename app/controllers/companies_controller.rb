@@ -23,6 +23,12 @@ class CompaniesController < ApplicationController
   def edit
   end
 
+  def update
+    if company.update(company_params)
+      redirect_to dashboard_path, notice: 'Компания сохранена'
+    end
+  end
+
   def destroy
   end
 
@@ -31,10 +37,10 @@ class CompaniesController < ApplicationController
   helper_method :company
 
   def company
-    @company ||= Company.find_or_initialize_by(params[:id])
+    @company ||= Company.find_or_initialize_by(id: params[:id])
   end
 
   def company_params
-    params.require(:trader).permit(:name, :inn, :kpp, :ogrn, :phone, :email)
+    params.require(:trader).permit(:name, :logo, :inn, :kpp, :ogrn, :phone, :email)
   end
 end

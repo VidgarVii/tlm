@@ -1,0 +1,31 @@
+.panel.col-md-3
+  .panel__header
+    = image_tag url_for(company.logo), height: 32, width: 32 if company.logo.attached?
+    h3 = company.name
+  .panel__body-flex
+    p
+      = company.inn
+      br
+      = company.email
+      br
+      = company.phone
+    nav
+      .nav-item.dropdown
+        =link_to '#', class: 'nav-link dropdown-toggle',
+                data: { toggle: 'dropdown'},
+                role: 'button' do
+          = icon('fas', 'bars')
+
+        ul.dropdown-menu
+          li
+            = link_to edit_company_path(company), class: 'dropdown-item' do
+              = icon('fas', 'users')
+              span  Сотрудники
+          li
+            = link_to edit_company_path(company), class: 'dropdown-item' do
+              = icon('fas', 'university')
+              span  Банковский счет
+          li
+            = link_to edit_company_path(company), class: 'dropdown-item' do
+              = icon('fas', 'edit')
+              span  Редактировать

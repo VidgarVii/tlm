@@ -1,5 +1,7 @@
 .row
-  = form_with model: company, url: companies_path, class: 'col-md-5 company' do |f|
+  = form_with model: company, url: url, class: 'col-md-5 company' do |f|
+    .form-group
+      = f.file_field :logo
     .form-group
       = f.collection_select :legal_form_id, LegalForm.all, :id, :less_title, {}, class: 'form-control'
     .form-group

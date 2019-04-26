@@ -7,6 +7,7 @@ ru:
         ogrn: 'ОГРН'
         phone: 'Телефон'
         name: 'Название'
+        logo: 'Лого'
     errors:
       template:
         header:
@@ -34,6 +35,8 @@ ru:
               wrong_length: 'данные не корректны'
             phone:
               blank: 'не может быть пустым'
+            logo:
+              content_type_invalid: 'не верный тип файла'
         address:
           attributes:
             trader:
