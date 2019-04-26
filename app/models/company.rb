@@ -11,7 +11,7 @@ class Company < ApplicationRecord
 
   validates :inn, :kpp, :name, :ogrn, :phone, presence: true
   validates :kpp,  length: { is: 9 }
-  validates :inn,  length: { is: 10 }
-  validates :ogrn, length: { is: 13 }
+  validates :inn,  length: { is: 10 }, uniqueness: true
+  validates :ogrn, length: { is: 13 }, uniqueness: true
   validates :logo, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 end

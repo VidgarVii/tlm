@@ -5,9 +5,9 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :phone
       t.string :type, default: "Trader", null: false
-      t.bigint :inn, index: true, null: false, unique: true
+      t.bigint :inn, null: false
       t.bigint :kpp, null: false
-      t.bigint :ogrn, null: false, unique: true
+      t.bigint :ogrn, null: false
       t.decimal :correspondent_account, precision: 20
       t.bigint :bik
 
@@ -15,5 +15,8 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :companies, :inn, unique: true
+    add_index :companies, :ogrn, unique: true
   end
 end

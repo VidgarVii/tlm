@@ -36,10 +36,9 @@ RSpec.describe CompaniesController, type: :controller do
 
   describe "GET #destroy" do
     it "returns http success" do
-      delete :destroy, params: { id: company }
+      delete :destroy, params: { id: company }, format: :js
 
       expect(response).to have_http_status(:success)
     end
   end
-
 end
