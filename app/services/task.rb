@@ -1,6 +1,7 @@
 class Services::Task
-  def check_run
-    puts 'Tasker Service run'
+  # Когда запускать и где хранить данные. Кеширование?
+  def run
+    'Tasker Service run'
   end
 
   private
