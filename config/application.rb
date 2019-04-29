@@ -25,6 +25,7 @@ module TLM
     config.i18n.default_locale = :ru
 
     # config.autoload_paths << "#{Rails.root}/lib/clients"
+    config.autoload_paths += [config.root.join('app')]
 
     config.generators do |g|
       g.template_engine :slim

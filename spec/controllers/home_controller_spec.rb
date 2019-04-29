@@ -28,7 +28,7 @@ describe HomeController, type: :controller do
     end
 
     context 'anonym' do
-      let(:user)           { create(:user) }
+      let(:user) { create(:user) }
 
       before { login(user) }
 
