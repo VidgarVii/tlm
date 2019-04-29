@@ -6,18 +6,16 @@ class BankAccountsController < ApplicationController
   def new; end
 
   def create
-    if company.payment_accounts.create(ba_params)
-      redirect_to dashboard_path
+    @ba = company.bank_accounts.build(ba_params)
+
+    if @ba.save
+      redirect_to company_bank_accounts_path(company)
     end
   end
 
   private
 
-  helper_method :company, :bank_account
-
-  def bank_account
-    @bank_account ||= BankAccount.find_or_initialize_by(params[:id])
-  end
+  helper_method :company
 
   def company
     @company ||= Company.find(params[:company_id])

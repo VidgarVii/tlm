@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-fdescribe BankAccountsController, type: :controller do
+describe BankAccountsController, type: :controller do
   let(:company) { create(:company) }
   let(:bank)    { create(:company, :bank) }
   let(:user)    { create(:user) }
@@ -34,12 +34,13 @@ fdescribe BankAccountsController, type: :controller do
   describe 'POST #create' do
     let(:post_create) { post :create,
                              params: { bank_account:
-                                           {settlement_account: 40702810975000003358, bank_id: bank.id } } }
+                                           {settlement_account: 40702810975000003358, bank_id: bank.id },
+                                        company_id: company.id } }
 
     it "returns http success" do
       post_create
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:redirect)
     end
 
     it 'redirects to index bank_account' do

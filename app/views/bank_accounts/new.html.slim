@@ -1,5 +1,5 @@
 .row
-  = form_with model: [company, bank_account], url: company_bank_accounts_path(company), class: 'col-md-5' do |f|
+  = form_with model: [company, BankAccount.new], url: company_bank_accounts_path(company), class: 'col-md-5' do |f|
     .form-group
       = f.label :settlement_account
       = f.number_field :settlement_account, class: 'form-control'
