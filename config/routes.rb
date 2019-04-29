@@ -4,5 +4,10 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'home#dashboard'
 
-  resources :companies
+  post 'search_bank', to: 'banks#search'
+  post 'create_bank', to: 'banks#create'
+
+  resources :companies do
+    resources :bank_accounts, shallow: true
+  end
 end

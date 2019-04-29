@@ -3,6 +3,5 @@ class Bank < Company
   has_many :clients, through: :bank_accounts
 
   validates :bik, :correspondent_account, presence: true
-  validates :bik, length: { is: 9 }
   validates :correspondent_account, length: { is: 20 }
 end

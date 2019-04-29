@@ -9,13 +9,14 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.bigint :kpp, null: false
       t.bigint :ogrn, null: false
       t.decimal :correspondent_account, precision: 20
-      t.bigint :bik
+      t.string :bik
 
       t.references :legal_form, foreign_key: true
 
       t.timestamps
     end
 
+    add_index :companies, :bik
     add_index :companies, :inn, unique: true
     add_index :companies, :ogrn, unique: true
   end

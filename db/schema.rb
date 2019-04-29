@@ -65,10 +65,11 @@ ActiveRecord::Schema.define(version: 2019_04_26_102722) do
     t.bigint "kpp", null: false
     t.bigint "ogrn", null: false
     t.decimal "correspondent_account", precision: 20
-    t.bigint "bik"
+    t.string "bik"
     t.bigint "legal_form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bik"], name: "index_companies_on_bik"
     t.index ["inn"], name: "index_companies_on_inn", unique: true
     t.index ["legal_form_id"], name: "index_companies_on_legal_form_id"
     t.index ["ogrn"], name: "index_companies_on_ogrn", unique: true

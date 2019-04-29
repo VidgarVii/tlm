@@ -1,0 +1,26 @@
+h1.bank_account
+  'Банковские счета
+  small = company.name
+
+hr
+.row
+  .col-md-3
+    nav.navbar.navbar-dark.bg-dark
+      ul.navbar-nav.mr-auto
+        li = link_to 'Добавить счет', new_company_bank_account_path(company), class: 'item nav nav-item c-white'
+
+  .col-md-5
+    - if company.bank_accounts.blank?
+      p
+        'У вас нет бакновского счета.
+        br
+        'Для заключения оферт Вам надо добавить банковский счет.
+    - else
+      ul
+        - company.bank_accounts.each do |account|
+          li
+            b = account.settlement_account
+            p "БИК #{account.bank.bik}"
+            p "Банк #{account.bank.name}"
+            p "к/с #{account.bank.correspondent_account}"
+

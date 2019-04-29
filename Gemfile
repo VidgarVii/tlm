@@ -18,6 +18,9 @@ gem 'mini_racer'
 gem 'devise'
 gem 'turbolinks', '~> 5'
 gem 'active_storage_validations'
+gem 'faraday', '~> 0.9.2'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'oj'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

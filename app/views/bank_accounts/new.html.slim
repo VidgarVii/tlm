@@ -1,0 +1,26 @@
+.row
+  = form_with model: [company, bank_account], url: company_bank_accounts_path(company), class: 'col-md-5' do |f|
+    .form-group
+      = f.label :settlement_account
+      = f.number_field :settlement_account, class: 'form-control'
+    .form-group
+      = f.hidden_field :bank_id
+    .form-group
+      = f.submit 'Добавить счет', class: 'btn btn-primary ml-2 form-control'
+
+  .col-md-5
+    h5 Поиск банка
+    = form_with url: search_bank_path, class: 'form-inline js_search_form' do |s|
+      .form-group
+        = s.label :bik, 'БИК', class: 'mr-2'
+        = s.number_field :bik, class: 'form-control'
+
+      = s.submit 'Поиск', class: 'btn btn-primary ml-2 form-control'
+
+    #js-search-result.hidden
+    .new_bank.hidden
+      p
+        'Банк не найден. Убедитесь, что БИК банка указан верно.
+        br
+        'Либо добавьте банк в систему.
+      = button_tag 'Добавить банк в базу', class: 'btn btn-success'

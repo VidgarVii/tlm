@@ -16,6 +16,13 @@ FactoryBot.define do
     legal_form
     phone { 999-111-11-11 }
   end
+
+  trait :bank do
+    bik { 111111114 }
+    correspondent_account { 30101860500000000608 }
+    type { 'Bank' }
+  end
+
   trait :with_address do
     after(:create) { |company| create(:address, address: 'Простоквашино', company: company) }
   end

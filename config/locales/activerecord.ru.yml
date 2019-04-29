@@ -8,6 +8,9 @@ ru:
         phone: 'Телефон'
         name: 'Название'
         logo: 'Лого'
+        bik: 'БИК'
+      bank_account:
+        settlement_account: 'Банковский счет'
     errors:
       template:
         header:
@@ -20,6 +23,29 @@ ru:
           has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
           has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
       models:
+        bank:
+          attributes:
+            legal_form:
+              required: 'Не выбрана государственная форма'
+            bik:
+              wrong_length: 'данные не корректны'
+            inn:
+              blank: 'не может быть пустым'
+              wrong_length: 'данные не корректны'
+              taken: 'Компания с таким ИНН уже существует'
+            kpp:
+              blank: 'не может быть пустым'
+              wrong_length: 'Данные не корректны'
+            name:
+              blank: 'не может быть пустым'
+            ogrn:
+              blank: 'не может быть пустым'
+              wrong_length: 'данные не корректны'
+              taken: 'Компания с таким ОГРН уже существует'
+            phone:
+              blank: 'не может быть пустым'
+            logo:
+              content_type_invalid: 'не верный тип файла'
         trader:
           attributes:
             inn:
