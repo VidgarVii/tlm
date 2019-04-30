@@ -1,1 +1,11 @@
 console.log('<%= @ba.errors.full_messages %>')
+
+<%- if @ba.errors.present? %>
+  <%- @ba.errors.messages.keys.each do |key| %>
+    var block = document.getElementById('bank_account_<%= key.to_s %>');
+    if (block) { block.classList.add('error'); }
+  <%- end %>
+
+  var formErrors = document.getElementById('form_errors');
+  formErrors.innerHTML = '<%= render 'shared/errors', resource: @ba %>'
+<%- end %>

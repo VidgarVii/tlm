@@ -6,11 +6,11 @@
     .form-group
       = f.hidden_field :bank_id
     .form-group
-      = f.submit 'Добавить счет', class: 'btn btn-primary ml-2 form-control'
+      = f.submit 'Добавить счет', class: 'btn btn-primary ml-2 form-control hidden', id: 'js-form-btn-add-payment'
 
   .col-md-5
     h5 Поиск банка
-    = form_with url: search_bank_path, class: 'form-inline js_search_form' do |s|
+    = form_with url: search_bank_path, class: 'form-inline js-search-form' do |s|
       .form-group
         = s.label :bik, 'БИК', class: 'mr-2'
         = s.number_field :bik, class: 'form-control'
@@ -24,3 +24,5 @@
         br
         'Либо добавьте банк в систему.
       = button_tag 'Добавить банк в базу', class: 'btn btn-success'
+
+    #form_errors

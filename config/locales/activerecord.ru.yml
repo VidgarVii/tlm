@@ -11,6 +11,7 @@ ru:
         bik: 'БИК'
       bank_account:
         settlement_account: 'Банковский счет'
+        bank: 'Банк'
     errors:
       template:
         header:
@@ -46,6 +47,7 @@ ru:
               blank: 'не может быть пустым'
             logo:
               content_type_invalid: 'не верный тип файла'
+
         trader:
           attributes:
             inn:
@@ -65,6 +67,7 @@ ru:
               blank: 'не может быть пустым'
             logo:
               content_type_invalid: 'не верный тип файла'
+
         address:
           attributes:
             trader:
@@ -72,3 +75,11 @@ ru:
             company:
               inn: 'ИНН'
               required: 'Ошибка'
+
+        bank_account:
+          attributes:
+            bank:
+              required: 'Не выбран банк'
+            settlement_account:
+              blank: 'не может быть пустым'
+              wrong_length: 'не корректен'
