@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe BanksController, type: :controller do
-  let(:user)    { create(:user) }
-  let!(:bank)    { create(:company, :bank) }
+  let(:accounts)    { create(:accounts) }
+  let!(:bank)  { create(:company, :bank) }
 
-  before { login(user) }
+  before { login(accounts) }
 
   describe "POST #search" do
     it "returns http success" do

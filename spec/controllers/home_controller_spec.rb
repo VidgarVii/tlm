@@ -13,11 +13,11 @@ describe HomeController, type: :controller do
   describe "GET #dashboard" do
     context 'manager' do
       let!(:company)  { create(:company) }
-      let(:user)           { create(:user) }
+      let(:account)           { create(:account) }
 
       before do
         company.employers.create(user: user, post: 1)
-        login(user)
+        login(account)
       end
 
       it "only user-manager returns http success" do
@@ -28,9 +28,9 @@ describe HomeController, type: :controller do
     end
 
     context 'anonym' do
-      let(:user) { create(:user) }
+      let(:account) { create(:account) }
 
-      before { login(user) }
+      before { login(account) }
 
       it "returns http redirect" do
         get :dashboard

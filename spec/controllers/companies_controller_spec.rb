@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe CompaniesController, type: :controller do
   let!(:company) { create(:company, :with_address) }
-  let(:user)           { create(:user) }
+  let(:account)           { create(:account) }
 
-  before { login(user) }
+  before { login(account) }
 
   describe "GET #index" do
     it "returns http success" do

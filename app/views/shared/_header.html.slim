@@ -8,7 +8,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     .my-2.my-lg-0.authenticated
       - if user_signed_in?
         span.c-white = current_user.email
-        = link_to t('exit'), destroy_user_session_path, method: :delete
+        = link_to t('exit'), destroy_account_session_path, method: :delete
       - else
-        = link_to t('signin'), new_user_session_path
-        = link_to t('signup'), new_user_registration_path
+        = link_to t('signin'), new_account_session_path
+        = link_to t('signup'), new_account_registration_path

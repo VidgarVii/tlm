@@ -3,9 +3,9 @@ require 'rails_helper'
 describe BankAccountsController, type: :controller do
   let(:company) { create(:company) }
   let(:bank)    { create(:company, :bank) }
-  let(:user)    { create(:user) }
+  let(:account)    { create(:account) }
 
-  before { login(user) }
+  before { login(account) }
 
   describe 'GET #index' do
     before { get :index, params: { company_id: company.id } }
