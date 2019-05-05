@@ -1,5 +1,5 @@
 class BankAccountsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_account!
 
   def index; end
 

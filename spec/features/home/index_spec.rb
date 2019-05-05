@@ -8,7 +8,6 @@ feature "home/index", type: :feature do
     visit root_path
   end
 
-
   scenario 'user can see page' do
     expect(page).to have_content 'TLM'
   end

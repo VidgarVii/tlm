@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_account!
 
   def index
   end
@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
     @company = legal_form.companies.build(company_params)
 
     if @company.save
-      @company.employers.create(user_id: current_user.id, post: 1)
+      @company.employers.create(user_id: current_account.id, post: 1)
       redirect_to dashboard_path, notice: 'Компания зарегистрирована'
     end
   end

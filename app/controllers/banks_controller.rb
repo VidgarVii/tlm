@@ -1,5 +1,5 @@
 class BanksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_account!
 
   def search
     if !service_bank.has_key?('error') && bank.new_record?
